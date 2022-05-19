@@ -73,10 +73,6 @@ class AccountTest {
         var verified = created.verify(email);
 
         // then
-        assertNotSame(created, verified); // Those are different instances but represent the same entity
-        assertThat(created.getEmail()).isEmpty(); // The CREATED account is not changed
-        assertThat(created.getStatus()).isEqualTo(CREATED); // The CREATED account is not changed
-
         assertThat(verified.getId()).isEqualTo(created.getId());
         assertThat(verified.getStatus()).isEqualTo(VERIFIED);
         assertThat(verified.getEmail().get()).isEqualTo(email);
